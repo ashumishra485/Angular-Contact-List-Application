@@ -1,0 +1,55 @@
+<div class="container-fluid" style=" height: 100vh;
+background-image: radial-gradient(circle, #0e1616, #151d1e, #1b2326, #222a2e, #2a3136, #2d363d, #313c44, #34414b, #304751, #2b4d55, #265357, #255956);
+">
+<h1 class="headClass">CONTACTS</h1>
+<br>
+<div *ngFor="let ann of allSavingGoal" class="col-md-12">
+    <div class="card" style="background-image: linear-gradient(to right, #000000, #0f0c0e, #181518, #1e1c21, #24242a, #272a31, #293038, #2b373f, #2b3d44, #2b4348, #2c484b, #2f4e4c);">
+        <div class="card-body">
+            <div class="row">
+                <div class="col-8 textColor" >
+                    <h5 class="card-title gradPatch" [routerLink]="['/editContact', ann.id]">
+                        {{ann.fullName}}
+                    </h5>
+                    <h6>
+                        {{ann.phone}} || {{ann.phonetype}} || {{ann.address}} ||
+
+                    </h6>
+                </div>
+                <div class="col-2">
+
+                </div>
+
+                <div class="col-2">
+                    <button id="imgBtn" (click)="toggleDelete(ann.id)"
+                        onclick="document.getElementById('id01').style.display='block'" type="button"
+                        class="btn btn-info btn-just-icon">
+                        <i class="fa fa-trash" id='danger' aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="id01" class="modal">
+    <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">×</span>
+    <form class="modal-content">
+        <div class="container">
+            <h1>Delete Contact ?</h1>
+            <p>Are you sure you want to delete your contact?</p>
+
+            <div class="clearfix">
+                <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                    class="btn btn-primary" (click)="toggle()">Cancel</button>
+                <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                    class="btn btn-danger blacktone" (click)="deleteDocument()">Delete</button>
+            </div>
+            <br>
+
+        </div>
+    </form>
+</div>
+
+<button type="button" class="btn btn-outline-success btn-round" style="font-size: large; font-weight: bold; margin:auto; display:block;" (click)="AddContact()">Add Contact</button>
+</div>
